@@ -1,0 +1,13 @@
+favicon: favicon.jpg
+
+menu:
+  root: /
+  whoami: whoami.html
+  CV: CV.html
+  projects: projects.html
+
+copyright:
+  name: tkyn.dev
+
+twikoo:
+  enable: false
