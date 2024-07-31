@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&display=swap');
+
+body {
+    font-family: 'Noto Sans Mono', monospace;
+}
+
+:root {
+    --font-main: 'Noto Sans Mono', monospace;
+    --background-color: #e0f7fa; /* Light cyan */
+    --heading-color: #004d61; /* Dark cyan */
+    --text-color: #004d61; /* Dark cyan */
+    --link-color: #3273dc; /* Blue */
+    --visited-color: #8b6fcb; /* Purple */
+    --code-background-color: #e0f7fa; /* Light cyan */
+    --code-color: #004d61; /* Dark cyan */
+}
+
+
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Add other theme-specific styles */

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<%- partial('partial/head') %>
+<body>
+    <% if (page.path !== '404.html') { %>
+        <%- partial('partial/header') %>
+    <% } %>
+
+    <!-- Add theme toggle button here, or you can add it to the header partial -->
+    <button id="theme-toggle">Arctic Theme</button>
+
+    <%- body %>
+
+    <% if (page.path !== '404.html') { %>
+        <%- partial('partial/footer') %>
+    <% } %>
+
+    <!-- Add theme switcher script -->
+    <script>
+    let isOliveTheme = false;
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeCSS = document.createElement('link');
+    themeCSS.rel = 'stylesheet';
+    themeCSS.id = 'theme-css';
+    document.head.appendChild(themeCSS);
+
+    themeToggle.addEventListener('click', () => {
+        isOliveTheme = !isOliveTheme;
+        if (isOliveTheme) {
+            themeCSS.href = '<%- url_for('/css/olive-theme.css') %>';
+            themeToggle.textContent = 'Switch to Arctic Theme';
+        } else {
+            themeCSS.href = '';
+            themeToggle.textContent = 'Switch to Olive Theme';
+        }
+    });
+    </script>
+</body>
+</html>
