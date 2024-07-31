@@ -14,7 +14,7 @@ The Security Operations Analyst Challenge was a great opportunity to learn about
 Including but not limited to
 
  
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesignite.png)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/ignite.png)
 
 Microsoft 365 for Endpoint
 

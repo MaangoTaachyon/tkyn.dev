@@ -16,14 +16,14 @@ I archived it in the event the repository goes down.
 
 https://web.archive.org/web/20211030123608/https://github.com/NS-Sp4ce/CVE-2021-21972
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imageschinese-poc/cve.png)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/chinese-poc/cve.png)
 
 Obviously don't run this script on your own machine without proper precautions.
 
 I'm going to be using a Kali Linux virtual machine in VMware to sandbox harm from my actual computer.
 Speaking of sandbox, I made a snapshot of my virtual machine and ran the script. 
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imageschinese-poc/cve2.png)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/chinese-poc/cve2.png)
 
 On the first run it didn't execute properly so I investigated line 258 and removed the problem code. (I couldn't be bothered to fix the actual problem)
 
@@ -50,18 +50,18 @@ If the upload is successful you will be faced with text that says
 
 With no further instructions on how to manage it. Going into the closed issues on the Github page I came across 
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imageschinese-poc/cve3.png)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/chinese-poc/cve3.png)
 
  I downloaded "Behinder" from the releases section of the Github, unzipped it, and attempted to run the jar file held within.
  
  
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imageschinese-poc/cve4.png)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/chinese-poc/cve4.png)
 
 Unsure of what this error message says (I can't read Chinese) I got to googling and by assumption I determined that the issue had to do with "Javafx" whatever that is. 
 
 I downloaded the SDK and moved the "lib" folder to where the jar file was located. Ran the command again and was pleasantly surprised. 
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imageschinese-poc/cve5.png)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/chinese-poc/cve5.png)
 
 Took some fiddling but I eventually bumped into how to add my shell. From there I had access to a shell to escalate privileges or drop a payload as a user.
 

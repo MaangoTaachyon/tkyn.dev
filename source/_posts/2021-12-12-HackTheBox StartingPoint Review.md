@@ -28,12 +28,12 @@ Start #hacking now: https://hackthebox.com"
 
 ## PROOF
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesStartingpoint-Academy/startingpoint.PNG)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Startingpoint-Academy/startingpoint.PNG)
  
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesStartingpoint-Academy/startingpoint2.PNG)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Startingpoint-Academy/startingpoint2.PNG)
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesStartingpoint-Academy/startingpoint3.PNG)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Startingpoint-Academy/startingpoint3.PNG)
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesStartingpoint-Academy/startingpoint4.PNG)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Startingpoint-Academy/startingpoint4.PNG)
 
 

