@@ -23,7 +23,7 @@ While your in the store install Windows Terminal as well have a better client fo
 Go ahead and upgrade to wsl2 with this guide.
 https://www.omgubuntu.co.uk/how-to-install-wsl2-on-windows-10
 
-![](/assets/images/wsl/wsl.png)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imageswsl/wsl.png)
 
 First things first make sure to update all your packages. I personally use Debian so I'm going to use apt as the example here. Opensuse and Alpine Linux both use separate package managers. This should apply to Ubuntu as well.
 
@@ -44,7 +44,7 @@ https://github.com/tmux/tmux
 
  otherwise install (on debian based OS) with apt install
   
-![](/assets/images/wsl/wsl2.png)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imageswsl/wsl2.png)
   
    ^^^^^^^^^^^^^^^^^^^^^
 

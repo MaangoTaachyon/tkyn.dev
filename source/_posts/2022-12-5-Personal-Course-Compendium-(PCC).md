@@ -26,4 +26,4 @@ I'm starting this file as a tracking mechanism for courses I have completed and 
 | Sektor7 Malware Development Essentials | Haven't finished this course either, need to get more familiar with C. From the author: It will teach you how to develop your own custom malware for latest Microsoft Windows 10. And by custom malware we mean building a dropper for any payload you want (Metasploit meterpreter, Empire or Cobalt Strike beacons, etc.), injecting your shellcodes into remote processes, creating trojan horses (backdooring existing software) and bypassing Windows Defender AV. | 30% | https://institute.sektor7.net/red-team-operator-malware-development-essentials - https://tkyn.dev/Sektor7-Malware-Development-Course/ | 
 
 
-![](/assets/images/PCC.png)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesPCC.png)

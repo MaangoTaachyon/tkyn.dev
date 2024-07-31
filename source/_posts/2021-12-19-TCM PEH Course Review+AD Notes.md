@@ -17,7 +17,7 @@ TL;DR The PEH course is a wonderful introduction to pentesting and I would recco
 
 The course covers:
 
-![](/assets/images/TCMPEH.PNG)
+![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/imagesTCMPEH.PNG)
 
 It is frequently on discount and is worth every penny.
 
