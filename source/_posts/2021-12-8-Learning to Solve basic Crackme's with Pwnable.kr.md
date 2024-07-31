@@ -25,7 +25,7 @@ I attempted http://microcorruption.com/  but with my current knowledge I can't e
 
 Onto pwnable.kr challenges, challenge 0x02 Bof, a buffer overflow challenge with the source code included to look at.
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/learning-crackme/crackme.png)
+![](/assets/images/learning-crackme/crackme.png)
 
 They initialize key as a variable, initialize a buffer of 32 bits for "overflow me", prints that statement to console. 
 

@@ -4,7 +4,7 @@ title: Leaked Babuk Ransomware Builder Fun!!
 date: 2021-12-9
 classes: wide
 header:
-  teaser: https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/ransom-note.jpg
+  teaser: /assets/images/ransom-note.jpg
 tags:
   - Ransomware
   - Malware analysis
@@ -12,7 +12,7 @@ tags:
 
 Realized I had a file named "babuk_builder.zip" sitting on my computer that I haven't messed with. 
 Today's the day! This isn't the cutting edge of ransomware leaks but it is interesting none the less.
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/babukPost/ransom-built.png)
+![](/assets/images/babukPost/ransom-built.png)
 
 ## Objectives
 In this post I will go over:
@@ -46,11 +46,11 @@ If you would like a more polished experience check out: https://github.com/mandi
 
 Taking a quick glance at the source code using visual studio code (what the group clearly used to write this) 
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/babukPost/ransom2.png)
+![](/assets/images/babukPost/ransom2.png)
 
 We can get an idea of the syntax of this builder.exe that continually draws my eye. 
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/babukPost/ransom3.png)
+![](/assets/images/babukPost/ransom3.png)
 
 Here we see that it's as simple as executing that previously mentioned exe file and the name of the folder you want to output to. 
 
@@ -59,7 +59,7 @@ as written in: https://lab52.io/blog/quick-review-of-babuk-ransomware-builder/
 
 ## FEATURES OF THE GENERATED MALWARE
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/babukPost/ransom4.png)
+![](/assets/images/babukPost/ransom4.png)
 
 The files follow a very simple naming convention. The prefix "d" is used to indicated that the file is used to decrypt the specified architecture (the second "syllable") 
 
@@ -69,13 +69,13 @@ The "CURVE25519" files are the aforementioned randomly generated eliptic curve e
 
 Today I am going to run the e_win executable and check out the results. The exsi, linux, arm and x86 files could very have profound differences. (I doubt it) 
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/babukPost/ransom-note.jpg)
+![](/assets/images/babukPost/ransom-note.jpg)
 
 ## ANY.RUN analysis and IOCs (Indicators of compromise)
 In the note dropped by an unedited note file build of babuk ransomware there is a link to this onion address:  
 tsu2dpiiv4zjzfyq73eibemit2qyrimbbb6lhpm6n5ihgallom5lhdyd.onion (click at your own risk)
 
-![](https://github.com/MaangoTaachyon/tkyn.dev/tree/main/assets/images/babukPost/ransom5.png)
+![](/assets/images/babukPost/ransom5.png)
 
 ## Sources:
 
