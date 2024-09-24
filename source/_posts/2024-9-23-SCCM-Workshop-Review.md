@@ -35,9 +35,3 @@ To avoid "death by PowerPoint," they themed the entire workshop around Portal. T
 Both the labs and the challenges accompanied the written material very well, showing how these things look in practice.
 
 **Resources** - They are sure to give you plenty of links to check out after the fact to up your toolkit, learn more on your own, and setup your own lab. Huge starting point on starting your own research after the fact!
-
-
-
----
-
-
