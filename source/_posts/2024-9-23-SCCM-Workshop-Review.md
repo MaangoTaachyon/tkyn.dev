@@ -12,7 +12,7 @@ I love this time of year when workshops, talks and research gets released from D
 ![](/assets/images/tweet.png)
 Got access to the workshop materials after reaching out to the organizer on Twitter (X)
 
-TL;DR: A well-organized and thoroughly researched workshop, complete with detailed slides and hands-on labs, created by the developers of many industry-standard tools. The challenges were excellent, and while I rarely needed help, the support was quick and responsive when I did reach out. I would highly recommend this workshop to anyone interested
+TL;DR: A well-organized and thoroughly researched workshop, complete with detailed slides and hands-on labs, created by the developers of many industry-standard tools. The challenges were excellent, and while I rarely needed help, the support was quick and responsive when I did reach out. I would highly recommend this workshop to anyone interested!
 
 Throughout the workshop they talk about utilizing SCCM from the aspect of each stage of an engagement.
 Module 0: Intro and Lab Access
