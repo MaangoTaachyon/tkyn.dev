@@ -12,6 +12,7 @@ A critical vulnerability exists in ASUS Armoury Crate, a system management softw
 
 Preinstalled on many ASUS motherboards and laptops, this software is deeply integrated into the system, making it difficult to remove without accessing the BIOS. Everyone assumes bloatware and preinstalled programs are merely annoying, not dangerous—but they absolutely can be.
 https://rog.asus.com/us/content/armoury-crate/
+
 I was added to the ASUS hall of fame for this discovery https://www.asus.com/content/asus-product-security-advisory/. Although I didn't discover this through reverse engineering the code in ILSpy, exploring the vulnerability's exact location and examining its implementation in C# was fascinating. Patch diffing and analyzing the implemented fix was also particularly interesting.
 
 ![](/assets/images/HOF.png)
@@ -50,9 +51,10 @@ Steps from: https://www.zerodayinitiative.com/blog/2022/3/16/abusing-arbitrary-f
 2. Create a file, `temp\folder1\file1.txt`.
 3. Set an oplock on `temp\folder1\file1.txt`.
 4. Wait for the vulnerable process to enumerate the contents of `temp\folder1` and try to delete the file `file1.txt` it finds there. This will trigger the oplock.
-5. When the oplock triggers, perform the following in the callback:  
-    a. Move `file1.txt` elsewhere, so that `temp\folder1` is empty and can be deleted. We move `file1.txt` as opposed to just deleting it because deleting it would require us to first release the oplock. This way, we maintain the oplock so that the vulnerable process continues to wait, while we perform the next step.  
-    b. Recreate `temp\folder1` as a junction to the ‘\RPC Control`folder of the object namespace. c. Create a symlink at`\RPC Control\file1.txt`pointing to`C:\Config.Msi::$INDEX_ALLOCATION`.
+5. When the oplock triggers, perform the following in the callback:
+	a. Move `file1.txt` elsewhere, so that `temp\folder1` is empty and can be deleted. We move `file1.txt` as opposed to just deleting it because deleting it would require us to first release the oplock. This way, we maintain the oplock so that the vulnerable process continues to wait, while we perform the next step.  
+	b. Recreate `temp\folder1` as a junction to the `\RPC Control`folder of the object namespace. 
+	c. Create a symlink at `\RPC Control\file1.txt` pointing to `C:\Config.Msi::$INDEX_ALLOCATION`.
 6. When the callback completes, the oplock is released and the vulnerable process continues execution. The delete of `file1.txt` becomes a delete of `C:\Config.Msi`.
 ### Video PoC:
 [https://youtu.be/GYPHj2B_-oE](https://youtu.be/GYPHj2B_-oE)
@@ -62,12 +64,13 @@ Steps from: https://www.zerodayinitiative.com/blog/2022/3/16/abusing-arbitrary-f
 I reported this vulnerability to ASUS and they got back to me exceptionally quickly and got a patch out by the end of the month!
 
 ![](/assets/images/suslpe2.png)
+
 The deletion is now passed to AuraWallpaperUserSessionHelper.exe with the 'DeleteAWEContent' flag as a normal user. The previously privileged deletion is now performed by the user who initiated the delete operation. Epic!
 ![](/assets/images/suslpe3.png)
 
 There were also several new functions added to the service itself that facilitate more secure file handling, which did not exist in the previous version.
 ![](/assets/images/suslpe4.png)
-The program is no longer vulnerable to arbitrary file deletion resulting from insecure file handling. Update your Armoury Crate!"
+The program is no longer vulnerable to arbitrary file deletion resulting from insecure file handling. Update your Armoury Crate!
 
 Since this vulnerability could be triggered unauthenticated through TCP once on a host, it's possible to exploit it without any GUI access. I didn't invest time in developing this approach, but the format of these requests is quite simple and could easily be replicated to trigger the delete and subsequent privilege escalation without a GUI. Users typically don't update this software promptly, so vulnerable versions are likely to remain unpatched for some time. This implementation is left as an exercise for the reader.
 
