@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  Path to Privilege: How Armoury Crate's File Deletion Flaw Creates System-Wide Risk
+title:  Path to Privilege How Armoury Crate's File Deletion Flaw Creates System-Wide Risk
 date: 2025-4-15
 classes: wide
 header:
