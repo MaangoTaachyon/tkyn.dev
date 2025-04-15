@@ -23,7 +23,7 @@ I was added to the ASUS hall of fame for this discovery https://www.asus.com/con
 One of the least interesting parts of this vulnerability to me is the actual exploitation as it's basically taking a well known technique (`FolderContentsDeleteToFolderDelete`) with some small modifications for ease of use to accomplish LPE. More interesting to me was investigating how this vulnerability originated and examining the fix that was implemented.
 
 Here's the snippet of code that enables exploitation:
-![](/assets/images/suslpe1)
+![](/assets/images/suslpe1.png)
 The unprivileged Armoury Crate utility communicates with the Armoury Crate service via TCP (not shown) to execute the 'Delete Content' command. When provided with a directory path, it recursively deletes files from that location.
 
 This wouldn't typically be a problem in directories where normal users lack write permissions. However, the vulnerability arises because malicious actors can create mount points and symlinks within accessible directories, redirecting the deletion process to target files of their choice elsewhere on the system.
@@ -61,12 +61,12 @@ Steps from: https://www.zerodayinitiative.com/blog/2022/3/16/abusing-arbitrary-f
 ### Checking out the fix!
 I reported this vulnerability to ASUS and they got back to me exceptionally quickly and got a patch out by the end of the month!
 
-![](/assets/images/suslpe2)
+![](/assets/images/suslpe2.png)
 The deletion is now passed to AuraWallpaperUserSessionHelper.exe with the 'DeleteAWEContent' flag as a normal user. The previously privileged deletion is now performed by the user who initiated the delete operation. Epic!
-![](/assets/images/suslpe3)
+![](/assets/images/suslpe3.png)
 
 There were also several new functions added to the service itself that facilitate more secure file handling, which did not exist in the previous version.
-![](/assets/images/suslpe4)
+![](/assets/images/suslpe4.png)
 The program is no longer vulnerable to arbitrary file deletion resulting from insecure file handling. Update your Armoury Crate!"
 
 Since this vulnerability could be triggered unauthenticated through TCP once on a host, it's possible to exploit it without any GUI access. I didn't invest time in developing this approach, but the format of these requests is quite simple and could easily be replicated to trigger the delete and subsequent privilege escalation without a GUI. Users typically don't update this software promptly, so vulnerable versions are likely to remain unpatched for some time. This implementation is left as an exercise for the reader.
