@@ -72,7 +72,7 @@ The public PoCs for this follow the same pattern.
 
 While this technique works perfectly on Windows version 23H2 (for reasons we'll explore later), Windows 11 24H2 exhibits unexpected behavior.
 
-![Pasted image 20250501104910.png](Pasted_image_20250501104910.png)
+![](/assets/images/bang/Pasted_image_20250501104910.png)
 
 This image shows a comparison between Windows 23H2 (left) and Windows 11 24H2 (right). In 24H2, while the file appears empty, it actually still exists on disk its contents have merely been moved to an alternate data stream instead of being deleted. The data persists in this alternate stream rather than the default one, which defeats the purpose of self deletion.
 
@@ -150,7 +150,6 @@ I was made aware of this through a discord message and an issue that was raised 
 ![](/assets/images/bang/image%206.png)
 
 ### Extra info!
-
 - **Read-Only File Protection**:
     - Debug Code: `0xf20b9`
     - When the file has read-only attributes and the caller doesn't have the right flags
@@ -172,3 +171,6 @@ I was made aware of this through a discord message and an issue that was raised 
 - **Failed to Create Handle for Memory-Mapped File**:
     - Debug Code: `0xf2160`
     - When NtfsCreatePosixDeleteHandleForMemoryMappedFile fails
+ 
+Big thanks to [sixtyvividtails](https://x.com/sixtyvividtails/)! 
+
