@@ -18,8 +18,8 @@ I was added to the Zoho hall of fame for this discovery [https://www.zoho.com/se
 
 ---
 
-### Timeline:
+### Addiitonal Info:
 
 ![](/assets/images/zoho1.png)
-
+Thomas Keefer added to HoF
 ![](/assets/images/zoho2.png)
