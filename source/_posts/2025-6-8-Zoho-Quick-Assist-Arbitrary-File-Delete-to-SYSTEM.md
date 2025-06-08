@@ -1,5 +1,11 @@
-# Zoho Quick Assist Arbitrary File Delete to SYSTEM
-
+---
+layout: single
+title:  Zoho Quick Assist Arbitrary File Delete to SYSTEM
+date: 2025-6-8
+classes: wide
+header:
+  teaser: 
+---
 [https://youtu.be/OtG5gkOxDDc](https://youtu.be/OtG5gkOxDDc)
 
 ### Overview
